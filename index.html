@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Itshaki | Portfolio</title>
+    <meta name="description" content="Portfolio of Bar Itshaki - CS & Informatics Student, Founder, and Project Manager.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Base Styles */
+        :root {
+            --bg-color: #0f172a;
+            --accent-color: #38bdf8;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Animation Utilities */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-delay-1 { transition-delay: 100ms; }
+        .stagger-delay-2 { transition-delay: 200ms; }
+        .stagger-delay-3 { transition-delay: 300ms; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Card Hover Effects */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
+        }
+
+        /* Blob Background Animation */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, -20px) scale(1.1); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-500/30 selection:text-sky-200">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="blob bg-sky-600 w-96 h-96 rounded-full top-0 left-[-100px]"></div>
+        <div class="blob bg-indigo-600 w-80 h-80 rounded-full bottom-0 right-[-100px] animation-delay-2000"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-slate-900/70 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold font-heading tracking-tight hover:text-sky-400 transition-colors">BI.</a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <!-- Mobile Menu Button (simplified for one-pager) -->
+            <button class="md:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 p-4 space-y-4">
+            <a href="#about" class="block text-slate-400 hover:text-white">About</a>
+            <a href="#experience" class="block text-slate-400 hover:text-white">Experience</a>
+            <a href="#projects" class="block text-slate-400 hover:text-white">Projects</a>
+            <a href="#contact" class="block text-slate-400 hover:text-white">Contact</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+
+        <!-- Hero Section -->
+        <section id="about" class="min-h-[80vh] flex flex-col justify-center items-start space-y-6 mb-24 reveal active">
+            <span class="text-sky-400 font-medium tracking-wide">Hi, I'm</span>
+            <h1 class="text-5xl md:text-7xl font-bold font-heading leading-tight">
+                Bar Itshaki.
+                <span class="block text-slate-500">I build & scale tech solutions.</span>
+            </h1>
+            <p class="max-w-xl text-lg text-slate-400 leading-relaxed">
+                CS & Informatics Student at <span class="text-white">University of Washington</span>. 
+                Founder, leader, and developer passionate about AI-driven products and managing high-performing technical teams.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a href="#contact" class="px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white font-medium rounded-lg transition-all shadow-lg shadow-sky-500/20">
+                    Get in Touch
+                </a>
+                <a href="BarItshakiResume_10.19.25.pdf" target="_blank" class="px-6 py-3 border border-slate-700 hover:border-sky-400 hover:text-sky-400 text-slate-300 font-medium rounded-lg transition-all flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-4 h-4"></i> Resume
+                </a>
+            </div>
+            
+            <div class="flex gap-6 pt-8 text-slate-400">
+                <a href="mailto:bar.itshaki@gmail.com" class="hover:text-sky-400 transition-colors"><i data-lucide="mail"></i></a>
+                <a href="https://linkedin.com/in/baritshaki" target="_blank" class="hover:text-sky-400 transition-colors"><i data-lucide="linkedin"></i></a>
+                <a href="https://baritshaki.me" target="_blank" class="hover:text-sky-400 transition-colors"><i data-lucide="globe"></i></a>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="mb-32">
+            <h2 class="text-3xl font-bold font-heading mb-12 flex items-center gap-4 reveal">
+                <span class="text-sky-400">01.</span> Experience
+                <span class="h-px bg-slate-800 flex-grow max-w-xs"></span>
+            </h2>
+
+            <div class="space-y-12 border-l border-slate-800 ml-3 pl-8 md:pl-12 relative">
+                
+                <!-- Experience Item 1 -->
+                <div class="relative reveal stagger-delay-1">
+                    <span class="absolute -left-[41px] md:-left-[57px] top-1 h-5 w-5 rounded-full border-2 border-sky-500 bg-slate-900"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-white">Project Management Intern (Lead)</h3>
+                        <span class="text-sm font-mono text-sky-400">Oct 2025 - Present</span>
+                    </div>
+                    <div class="text-lg text-slate-300 mb-4">Propper AI</div>
+                    <ul class="list-disc list-outside ml-4 text-slate-400 space-y-2 text-sm leading-relaxed">
+                        <li>Leading and mentoring a cohort of 9 interns, fostering a high-performing team environment.</li>
+                        <li>Directing strategic planning and oversight of three concurrent team projects from inception to completion.</li>
+                        <li>Providing guidance on core project management principles, resource allocation, and risk mitigation.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="relative reveal stagger-delay-2">
+                    <span class="absolute -left-[41px] md:-left-[57px] top-1 h-5 w-5 rounded-full border-2 border-slate-700 bg-slate-900"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-white">Founder & President</h3>
+                        <span class="text-sm font-mono text-slate-500">2025 - Present</span>
+                    </div>
+                    <div class="text-lg text-slate-300 mb-4">TAMID Group at UW</div>
+                    <ul class="list-disc list-outside ml-4 text-slate-400 space-y-2 text-sm leading-relaxed">
+                        <li>Founded the UW chapter, recruiting an executive board and scaling membership to 70+ members.</li>
+                        <li>Direct chapter operations, strategic planning, and corporate outreach.</li>
+                        <li>Manage relationships with Israeli startups and VCs to secure consulting projects.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="relative reveal stagger-delay-3">
+                    <span class="absolute -left-[41px] md:-left-[57px] top-1 h-5 w-5 rounded-full border-2 border-slate-700 bg-slate-900"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-white">COO & Co-founder</h3>
+                        <span class="text-sm font-mono text-slate-500">Feb 2025 - Oct 2025</span>
+                    </div>
+                    <div class="text-lg text-slate-300 mb-4">Beam Bell</div>
+                    <ul class="list-disc list-outside ml-4 text-slate-400 space-y-2 text-sm leading-relaxed">
+                        <li>Shaped strategic direction and product roadmap for AI-driven products.</li>
+                        <li>Acquired first clients and gathered critical user feedback for iterative development.</li>
+                        <li>Secured connections to VCs and industry mentors for funding and guidance.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-32">
+            <h2 class="text-3xl font-bold font-heading mb-12 flex items-center gap-4 reveal">
+                <span class="text-sky-400">02.</span> Technical Projects
+                <span class="h-px bg-slate-800 flex-grow max-w-xs"></span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Project Card 1 -->
+                <div class="group bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500/50 card-hover reveal stagger-delay-1">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="globe" class="text-sky-400 w-8 h-8"></i>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="github" class="w-5 h-5"></i></a>
+                            <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">TAMID Group Website</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        Lead Developer for the official chapter website serving 70+ members. Built with AI-powered tools, deployed on Vercel.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs font-mono text-sky-300">React</span>
+                        <span class="text-xs font-mono text-sky-300">Vercel</span>
+                        <span class="text-xs font-mono text-sky-300">AI Tools</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="group bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500/50 card-hover reveal stagger-delay-2">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="calendar" class="text-sky-400 w-8 h-8"></i>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">Medina Days Festival Site</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        Central information hub featuring interactive, real-time community polls. Independently developed responsive web app.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs font-mono text-sky-300">React</span>
+                        <span class="text-xs font-mono text-sky-300">Vite</span>
+                        <span class="text-xs font-mono text-sky-300">Tailwind</span>
+                        <span class="text-xs font-mono text-sky-300">Firebase</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="group bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500/50 card-hover reveal stagger-delay-1">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="gamepad-2" class="text-sky-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">Handheld Gaming System</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        Built and programmed a custom handheld console from scratch. Designed enclosure (CAD), 3D printed parts, and custom circuitry.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs font-mono text-sky-300">C++</span>
+                        <span class="text-xs font-mono text-sky-300">CAD</span>
+                        <span class="text-xs font-mono text-sky-300">Hardware</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="group bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500/50 card-hover reveal stagger-delay-2">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="bot" class="text-sky-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">AI-Driven Robot Mount</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        FRC Robotics project using generative AI and topology optimization to design lightweight mounts. Validated via stress-tests.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs font-mono text-sky-300">Generative AI</span>
+                        <span class="text-xs font-mono text-sky-300">Fusion 360</span>
+                        <span class="text-xs font-mono text-sky-300">Simulation</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-32">
+            <h2 class="text-3xl font-bold font-heading mb-12 flex items-center gap-4 reveal">
+                <span class="text-sky-400">03.</span> Skills & Tools
+                <span class="h-px bg-slate-800 flex-grow max-w-xs"></span>
+            </h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center reveal">
+                <!-- Skill Category 1 -->
+                <div class="bg-slate-800/30 p-4 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                    <h4 class="text-sky-400 font-bold mb-3">Languages</h4>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>HTML/CSS</li>
+                    </ul>
+                </div>
+                <!-- Skill Category 2 -->
+                <div class="bg-slate-800/30 p-4 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                    <h4 class="text-sky-400 font-bold mb-3">Web & Cloud</h4>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>React & Tailwind</li>
+                        <li>Git & Vercel</li>
+                        <li>Firebase</li>
+                        <li>Vite</li>
+                    </ul>
+                </div>
+                <!-- Skill Category 3 -->
+                <div class="bg-slate-800/30 p-4 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                    <h4 class="text-sky-400 font-bold mb-3">AI Tools</h4>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>ChatGPT/Gemini</li>
+                        <li>Cursor IDE</li>
+                        <li>Topology Opt.</li>
+                        <li>Generative Design</li>
+                    </ul>
+                </div>
+                <!-- Skill Category 4 -->
+                <div class="bg-slate-800/30 p-4 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                    <h4 class="text-sky-400 font-bold mb-3">Hardware</h4>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>Fusion 360/CAD</li>
+                        <li>3D Printing</li>
+                        <li>Circuit Design</li>
+                        <li>Soldering</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Footer -->
+        <section class="text-center mb-24 reveal">
+             <h2 class="text-2xl font-bold font-heading mb-6 text-white">Education</h2>
+             <div class="inline-block bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Washington_Huskies_logo.svg" alt="UW Logo" class="h-16 w-auto mx-auto mb-4 opacity-80">
+                <h3 class="text-xl font-bold text-white">University of Washington</h3>
+                <p class="text-sky-400 mt-1">B.S. Computer Science & Informatics</p>
+                <p class="text-slate-500 text-sm mt-2">Expected June 2028 | Seattle, WA</p>
+                <p class="text-slate-400 text-xs mt-4 max-w-md mx-auto">
+                    Coursework: Data Structures & Algorithms, Engineering Design, Physics, Statistics.
+                </p>
+             </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="text-center pb-8 pt-12 border-t border-slate-800/50">
+            <h2 class="text-2xl font-bold text-white mb-6">Let's Connect</h2>
+            <p class="text-slate-400 mb-8 max-w-md mx-auto">
+                Currently seeking a challenging tech-focused internship. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+            </p>
+            <a href="mailto:bar.itshaki@gmail.com" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 font-medium mb-12 text-lg">
+                <i data-lucide="mail" class="w-5 h-5"></i> Say Hello
+            </a>
+            
+            <div class="text-slate-600 text-sm">
+                <p>&copy; 2026 Bar Itshaki. Built with Tailwind CSS.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add 'active' class to hero immediately
+        document.querySelector('section#about').classList.add('active');
+    </script>
+</body>
+</html>
